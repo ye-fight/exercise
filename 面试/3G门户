@@ -1,0 +1,70 @@
+// 反转单链表
+class Node {  
+    char value;  
+    Node next;  
+}  
+
+public Node reverse(Node current) {  
+    //initialization  
+    Node previousNode = null;  
+    Node nextNode = null;  
+      
+    while (current != null) {  
+        //save the next node  
+        nextNode = current.next;  
+        //update the value of "next"  
+        current.next = previousNode;  
+        //shift the pointers  
+        previousNode = current;  
+        current = nextNode;           
+    }  
+    return previousNode;  
+} 
+
+public Node reverse(Node current)  
+{  
+	if (current == null || current.next == null) return current;  
+	Node nextNode = current.next;  
+	current.next = null;  
+	Node reverseRest = reverse(nextNode);  
+	nextNode.next = current;  
+	return reverseRest;  
+}  
+-------------------------------------------------
+设计模式：对软件设计中普遍存在（反复出现）的各种问题，所提出的解决方案
+
+创建型：
+Factory Method（工厂模式）
+Abstract Factory（抽象工厂模式）
+Builder（生成器模式）
+Prototype（原型模式）
+Singleton（单例模式）
+
+结构型：
+Adapter（适配器模式）
+Bridge（桥接模式）
+Composite（组合模式）
+Decorator（修饰模式）
+Facade（外观模式）
+Flyweight（享元）
+Proxy（代理）
+
+行为型
+Interpreter（解析器）
+Template Method（模板方法）
+Chain of Responsibility（责任链）
+Command（命令）
+Interator（迭代器）
+Mediator（中介者）
+Memento（备忘录）
+Observer（观察者模式）
+State（状态）
+Strategy（策略）
+Visitor（访问者）
+------------------------------------------------
+定义一个函数为虚函数，不代表函数为不被实现的函数。定义他为虚函数是为了允许用基类的指针来调用子类的这个函数。
+
+定义一个函数为纯虚函数，才代表函数没有被实现。定义他是为了实现一个接口，起到一个规范的作用，规范继承这个。类的程序员必须实现这个函数。 
+
+有纯虚函数的类是不可能生成类对象的，如果没有纯虚函数则可以
+
